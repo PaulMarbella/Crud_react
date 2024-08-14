@@ -8,9 +8,9 @@ public class LoanService
 
     public List<Loan> GetLoans() => _loans;
 
-    public Loan AddLoan(string name, decimal loanAmount, float interest)
+    public Loan AddLoan( string loanType)
     {
-        var loan = new Loan { Id = _nextId++, Name = name, LoanAmount = loanAmount, Interest = interest };
+        var loan = new Loan { Id = _nextId++,  LoanType = loanType};
         _loans.Add(loan);
         return loan;
     }

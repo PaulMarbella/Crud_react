@@ -90,17 +90,20 @@ export const LoanTable = () => {
     }
   };
 
+  // Function to close the EditForm
+  const handleCloseEditForm = () => {
+    setEditingItem(null);
+  };
+
   return (
-    <div>
-      <div className="d-flex justify-content-around">
+    <div className='mt-3'>
+      <div className="d-flex justify-content-around col-12">
         <AddData onAdd={handleAdd} />
-        <table className="table mt-3 ml-4">
+        <table className="table table-striped">
           <thead className="thead-dark">
             <tr>
               <th>#</th>
-              <th>Name</th>
-              <th>Loan Amount</th>
-              <th>Interest</th>
+              <th>Loan Type</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -117,9 +120,7 @@ export const LoanTable = () => {
               data.map((item) => (
                 <tr key={item.id}>
                   <th>{item.id}</th>
-                  <td>{item.name}</td>
-                  <td>{item.loanAmount}</td>
-                  <td>{item.interest}</td>
+                  <td>{item.loanType}</td>
                   <td>
                     <button
                       className="btn btn-warning btn-sm me-2"
@@ -141,7 +142,7 @@ export const LoanTable = () => {
         </table>
       </div>
       {editingItem && (
-        <EditForm item={editingItem} onSave={handleSave} />
+        <EditForm item={editingItem} onSave={handleSave} onClose={handleCloseEditForm} />
       )}
     </div>
   );

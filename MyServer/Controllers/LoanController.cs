@@ -9,9 +9,9 @@ namespace LoanType.Controllers
     {
         private static readonly List<Loan> loans = new List<Loan>
         {
-            new Loan { Id = 1, Name = "Mark", LoanAmount = 30000, Interest = 12 },
-            new Loan { Id = 2, Name = "Jacob", LoanAmount = 520000, Interest = 1 },
-            new Loan { Id = 3, Name = "Larry", LoanAmount = 43000, Interest = 6 }
+            new Loan { Id = 1, LoanType = "Personal Loans"},
+            new Loan { Id = 2,  LoanType = "Business Loans" },
+            new Loan { Id = 3,  LoanType = "Payday Loans" }
         };
 
         [HttpGet]
@@ -34,9 +34,9 @@ namespace LoanType.Controllers
             var loan = loans.Find(l => l.Id == id);
             if (loan == null) return NotFound();
 
-            loan.Name = updatedLoan.Name;
-            loan.LoanAmount = updatedLoan.LoanAmount;
-            loan.Interest = updatedLoan.Interest;
+ 
+            loan.LoanType = updatedLoan.LoanType;
+        
             return Ok(loan);
         }
 
@@ -51,11 +51,5 @@ namespace LoanType.Controllers
         }
     }
 
-    public class Loan
-    {
-        public int Id { get; set; }
-        public string? Name { get; set; }
-        public decimal LoanAmount { get; set; }
-        public decimal Interest { get; set; }
-    }
+
 }

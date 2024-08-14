@@ -1,5 +1,7 @@
 import {  LoanTable } from "./components/LoanTable";
 import { Home } from "./components/Home";
+import { EditForm } from "./components/Editform";
+import { AddData } from "./components/addData";
 
 const AppRoutes = [
   {
@@ -10,6 +12,14 @@ const AppRoutes = [
     path: '/LoanTable',
     element: <LoanTable />
   },
+  {
+    path: '/Edit',
+    element: <EditForm />
+  },
+  {
+    path: '/AddData',
+    element: <AddData/>
+  }
  
 ];
 
